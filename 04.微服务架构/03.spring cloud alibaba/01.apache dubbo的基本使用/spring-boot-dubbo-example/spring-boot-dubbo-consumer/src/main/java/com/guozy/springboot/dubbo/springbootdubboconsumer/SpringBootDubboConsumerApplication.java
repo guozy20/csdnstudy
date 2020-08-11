@@ -21,6 +21,7 @@ public class SpringBootDubboConsumerApplication {
 
     @GetMapping("say")
     public String sayHello(){
+        
         return sayHelloService.sayHello("guozy");
     }
 }
