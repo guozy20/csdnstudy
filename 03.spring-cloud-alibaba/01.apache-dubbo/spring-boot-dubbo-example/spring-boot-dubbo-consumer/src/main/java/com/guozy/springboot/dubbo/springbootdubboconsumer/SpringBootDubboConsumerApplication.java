@@ -16,6 +16,7 @@ public class SpringBootDubboConsumerApplication {
         SpringApplication.run(SpringBootDubboConsumerApplication.class, args);
     }
 
+//    @DubboReference(registry = {"shanghai","beijing"},version = "2.0") // 通过dubbo的协议来调用，不能用@Autowired
     @DubboReference(registry = {"shanghai","beijing"},version = "2.0") // 通过dubbo的协议来调用，不能用@Autowired
     ISayHelloService sayHelloService;
 
