@@ -11,7 +11,7 @@ public class SayHelloController {
 
     //    @DubboReference(registry = {"shanghai","beijing"},version = "2.0") // 通过dubbo的协议来调用，不能用@Autowired
 //   loadbalance 负载均衡算法 consistenthash 一致性hash算法 roundrobin 加权轮询
-    @DubboReference(registry = {"shanghai", "beijing"},
+    @DubboReference(registry = {"beijing","shanghai"},
             protocol = "dubbo",
             loadbalance = "consistenthash",
             mock = "com.guozy.springboot.dubbo.springbootdubboconsumer.MockSayHelloService",

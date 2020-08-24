@@ -3,12 +3,15 @@ package com.guozy.springboot.dubbo.springbootdubboprovider.service.impl;
 
 import com.guozy.springboot.dubbo.ISayHelloService;
 import org.apache.dubbo.config.annotation.DubboService;
-import org.springframework.beans.factory.annotation.Value;
 
-@DubboService(registry = {"shanghai", "beijing"},protocol = {"dubbo","rest"})
+@DubboService(registry = {"shanghai", "beijing"},
+        protocol = {"dubbo", "rest"},
+        loadbalance = "random",
+        cluster = "failover",
+        retries = 2)
 public class SayHelloServiceImpl implements ISayHelloService {
-    @Value("${dubbo.protocols.dubbo.port}")
-    private Integer port;
+//    @Value("${dubbo.protocols.dubbo.port}")
+//    private Integer port;
 
     @Override
     public String sayHello(String msg) {
@@ -18,6 +21,6 @@ public class SayHelloServiceImpl implements ISayHelloService {
             e.printStackTrace();
         }
         System.out.println("msg:" + System.currentTimeMillis());
-        return "hello world！" + msg + "version1.0"+",port:"+port;
+        return "hello world！" + msg + "version1.0"+",port:";
     }
 }
